@@ -24,6 +24,8 @@
 				<string>%GITHUB_REPO%</string>
 				<key>include_prereleases</key>
 				<false/>
+				<key>asset_regex</key>
+				<string>.*universal.*</string>
 			</dict>
 			<key>Processor</key>
 			<string>GitHubReleasesInfoProvider</string>
@@ -31,8 +33,8 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%-%version%.tgz</string>
+				<key>prefetch_filename</key>
+				<true/>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -58,7 +60,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/darwin/launcher</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/darwin.universal_v%version%/launcher</string>
 				<key>requirement</key>
 				<string>identifier launcher and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = YZ3EM74M78</string>
 			</dict>
@@ -69,18 +71,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/darwin/osqueryd</string>
-				<key>requirement</key>
-				<string>identifier osqueryd and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = B89LNTUADM</string>
-			</dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/darwin/osquery-extension.ext</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/darwin.universal_v%version%/osquery-extension.ext</string>
 				<key>requirement</key>
 				<string>identifier "osquery-extension" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = YZ3EM74M78</string>
 			</dict>

@@ -31,10 +31,21 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/%NAME%/darwin.universal_v%version%/package-builder</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>destination_path</key>
 				<string>%pkgroot%/usr/local/launcher/bin</string>
 				<key>source_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/darwin</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/darwin.universal_v%version%/</string>
 			</dict>
 			<key>Processor</key>
 			<string>Copier</string>
